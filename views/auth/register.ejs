@@ -1,0 +1,81 @@
+<%- include('../partials/_header'); %>
+
+ 
+<div class="controlPanelBackground">
+    <img src="/images/login-bg.png">
+</div>
+
+<div class="loginHeadArea">
+    <div class="loginSubArea">
+        <div class="adminLoginFormBackground">
+            <div class="adminLoginFormSubBackground"></div>
+        </div>
+        <div class="adminLoginFormArea">
+            <div class="row m-b-20">
+                <div class="col-md-12">
+                    <div class="profilePhotoArea">
+                        <div class="profilePhoto">
+                            <img src="/images/logo.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <form action="users/signup" method="POST" class="formArea" autocomplete="on">
+                
+                <% if (flashMessages) { %>
+
+                    <% if (flashMessages.success) { %>
+                        
+                        <ul class="alert alert-success">
+                            <% for (let j = 0; j < flashMessages.success.length; j ++) { %>
+                                <li><%= flashMessages.success[j] %></li>
+                            <% } %>
+                        </ul>
+
+                    <% }
+                    else if (flashMessages.error) { %>
+                            
+                        <ul class="alert alert-danger">
+                            <% for (let j = 0; j < flashMessages.error.length; j ++) { %>
+                                <li><%= flashMessages.error[j] %></li>
+                            <% } %>
+                        </ul>
+
+                    <% } %>
+
+                <% } %>
+
+                <div class="input-group nameArea">
+                    <label for="email"><i class="fas fa-user"></i></label>
+                    <input type="text" name="name" class="form-control" placeholder="Name *" autofocus/>
+                </div>
+                <div class="input-group emailArea">
+                    <label for="email"><i class="fas fa-envelope"></i></label>
+                    <input type="email" name="email" class="form-control" placeholder="E-mail *" autofocus/>
+                </div>
+                <div class="input-group passwordArea">
+                    <label for="password"><i class="fas fa-key"></i></label>
+                    <input type="password" name="password" class="form-control" placeholder="Password *" autofocus/>
+                </div>
+                <div class="input-group passwordArea">
+                    <label for="password"><i class="fas fa-key"></i></label>
+                    <input type="password" name="confirmPassword" class="form-control" placeholder="Confirm Password *" autofocus/>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <button type="submit" class="loginSubmitButton">
+                            Sign up
+                        </button>
+                    </div>
+                </div>
+                <div class="row forgetPasswordArea">
+                    Already, Are you member? <a href="/login">Login</a>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<%- include('../partials/_footer'); %>

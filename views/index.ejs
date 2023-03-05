@@ -1,0 +1,65 @@
+<%- include('partials/_header'); %>
+
+
+    <div class="surface">
+        <div class="main">
+            <div class="mySettingsMain">
+                <div class="mainSettings" id="mainSettingArea">
+                    <button class="contacts">
+                        <i class="fas fa-users"></i>
+                    </button>
+                    <button class="chat active">
+                        <i class="fas fa-comment"></i>
+                    </button>
+                    <button class="profile">
+                        <i class="fas fa-user-circle"></i>
+                    </button>
+                </div>
+                <div class="logoutArea">
+                    <button class="logout" onclick="window.location.href = `/users/logout`">
+                        <i class="fas fa-sign-out"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="person">
+                <div class="profileInfoArea" data-id="<%= userId %>">
+                    <div class="infoArea">
+                        <img class="profilePhoto" src="<%= myProfilePhoto %>" alt="">
+                        <div class="content">
+                            <div class="name">
+                                <%= myName %>
+                            </div>
+                            <div class="shortDetail">
+                                <%= myEmail %>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mySettings">
+                        <button onclick="mySettingsFunction()" class="settingsButton">
+                            <i class="far fa-ellipsis-h"></i>
+                        </button>
+                        <div id="myProfileSettings" class="settingsContent">
+                            <button class="btnProfile"><i class="fas fa-user-circle"></i>Profile</button>
+                            <button class="btnCreatePerson"><i class="fas fa-user-plus"></i>Create New Person</button>
+                            <button class="btnContacts"><i class="fas fa-users"></i>Contacts</button>
+                            <a href="/users/logout"><i class="fas fa-sign-out"></i>Logout</a>
+                        </div>
+                    </div>
+                </div>
+                
+
+            </div>
+            <div class="personDetail mainPage">
+                <div class="mainPageDetail">
+                    <div class="logo">
+                        <i class="fas fa-users"></i> <i class="fas fa-comments-alt"></i>
+                    </div>
+                    <div class="title">ChatApp</div>
+                    <div class="text">Send and receive messages using email address.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<%- include('partials/_footer'); %>
