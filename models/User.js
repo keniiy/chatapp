@@ -19,7 +19,7 @@ const UserSchema = new Schema({
   },
   image: {
     type: String,
-    default: '/images/default-image.png'
+    default: "/images/default-image.png",
   },
   phoneBook: [
     {
@@ -29,25 +29,25 @@ const UserSchema = new Schema({
   ],
   createdAt: {
     type: Date,
-    default: Date.now
-  }
+    default: Date.now,
+  },
 });
 
-UserSchema.pre("save", function (next) {
-  const user = this;
-  if (!user.isModified("password")) return next();
+// UserSchema.pre("save", function (next) {
+//   const user = this;
+//   if (!user.isModified("password")) return next();
 
-  bcrypt.genSalt(10, (error, salt) => {
-    if (error) return next(error);
+//   bcrypt.genSalt(10, (error, salt) => {
+//     if (error) return next(error);
 
-    bcrypt.hash(user.password, salt, (error, hash) => {
-      if (error) return next(error);
+//     bcrypt.hash(user.password, salt, (error, hash) => {
+//       if (error) return next(error);
 
-      user.password = hash;
-      next();
-    });
-  });
-});
+//       user.password = hash;
+//       next();
+//     });
+//   });
+// });
 
 const User = mongoose.model("User", UserSchema);
 module.exports = User;

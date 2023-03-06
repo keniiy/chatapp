@@ -1,13 +1,16 @@
 const { application } = require("express");
 const express = require("express");
-const personController = require("../controllers/personController");
-const { body } = require("express-validator");
-const User = require("../models/User");
+const EventEmitter = require("events");
+const myEmitter = new EventEmitter();
+
+myEmitter.setMaxListeners(15);
+
+const PersonController = require("../controller/personController");
 
 const router = express.Router();
 
-router.route("/create").post(personController.createPerson);
-router.route("/list").get(personController.listPerson);
-router.route("/delete").delete(personController.deletePerson);
+router.route("/create").post(PersonController.createPerson);
+router.route("/list").get(PersonController.listPerson);
+router.route("/delete").delete(PersonController.deletePerson);
 
 module.exports = router;
