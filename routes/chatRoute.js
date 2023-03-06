@@ -1,11 +1,7 @@
 const { application } = require("express");
 const express = require("express");
-const chatController = require("../controller/chatController");
+const chatController = require("../controllers/chatController");
 const { body } = require("express-validator");
-const EventEmitter = require("events");
-const myEmitter = new EventEmitter();
-
-myEmitter.setMaxListeners(15);
 
 const router = express.Router();
 
