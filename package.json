@@ -4,23 +4,24 @@
   "description": "Chat Program",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "node app.js",
+    "dev": "nodemon app.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hasanbekir97/ChatApp.git"
+    "url": ""
   },
   "keywords": [
     "chat",
     "message",
     "node.js"
   ],
-  "author": "Hasan Bekir DOĞAN",
+  "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/hasanbekir97/ChatApp/issues"
+    "url": ""
   },
-  "homepage": "https://github.com/hasanbekir97/ChatApp#readme",
+  "homepage": "",
   "dependencies": {
     "app-root-path": "^3.1.0",
     "bcrypt": "^5.0.1",

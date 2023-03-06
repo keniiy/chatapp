@@ -24,9 +24,17 @@ const myEmitter = new EventEmitter();
 myEmitter.setMaxListeners(15);
 
 const app = express();
+let URI;
 
-const URI =
-  "mongodb+srv://kenny:!Password123@nodetuts.wxybe.mongodb.net/?retryWrites=true&w=majority";
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+  URI = keys.PRODUCTION_DB;
+}
+
+if (process.env.NODE_ENV === "development") {
+  app.use(morgan("dev"));
+  URI = keys.PRODUCTION_DB;
+}
 
 const http = require("http").Server(app);
 const io = require("socket.io")(http);
